@@ -1,6 +1,17 @@
-const mongoose = require('mongoose');
+import mongoose, { Schema, Document } from 'mongoose'
 
-const orderSchema = new mongoose.Schema({
+export interface OrderDocument extends Document {
+    customerName: string
+    address: string
+    orderDate: string
+    items: {
+        productName: string
+        quantity: number
+        pricePerUnit: number
+    }[]
+}
+
+const orderSchema: Schema = new Schema({
     customerName: { type: String, required: true },
     address: { type: String, required: true },
     orderDate: { type: Date, default: Date.now },
@@ -9,8 +20,8 @@ const orderSchema = new mongoose.Schema({
         quantity: Number,
         pricePerUnit: Number
     }]
-});
+})
 
-const OrderModel = mongoose.model('Order', orderSchema, "orders");
+const OrderModel = mongoose.model<OrderDocument>('Order', orderSchema)
 
 export default OrderModel
