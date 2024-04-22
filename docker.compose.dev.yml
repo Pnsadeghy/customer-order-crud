@@ -12,6 +12,10 @@ services:
       - ./dist:/var/www/html/app/dist
     environment:
       - NODE_ENV=development
+    external_links:
+      - mongo
+    depends_on:
+      - mongo
 
   frontend:
     build:
@@ -24,3 +28,20 @@ services:
       - /var/www/html/app/node_modules
     environment:
       - NODE_ENV=development
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27012:27017'
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    ports:
+      - '8083:8081'
+    environment:
+      - ME_CONFIG_BASICAUTH_USERNAME=root
+      - ME_CONFIG_BASICAUTH_PASSWORD=password
