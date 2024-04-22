@@ -1,0 +1,7 @@
+{
+	"label.username": "Username",
+	"validation.required": "{{field}} is required",
+	"validation.auth.exists": "User already exists",
+	"validation.auth.failed": "validation.auth.failed",
+	"validation.auth.current": "validation.auth.current"
+}
