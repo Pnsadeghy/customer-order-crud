@@ -1,9 +1,10 @@
 import { body } from 'express-validator'
+import i18n from "../../localization"
 
 const registerRequest = [
-    body('username').notEmpty().withMessage('Username is required'),
-    body('email').isEmail().withMessage('Invalid email address'),
-    body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long')
+    body('username').notEmpty().withMessage(i18n.__("validation.auth.username")),
+    body('email').isEmail().withMessage(i18n.__("validation.auth.email")),
+    body('password').isLength({ min: 6 }).withMessage(i18n.__("validation.auth.password"))
 ]
 
 export default registerRequest
