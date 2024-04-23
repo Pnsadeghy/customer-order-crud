@@ -1,0 +1,39 @@
+{
+  "title": "Customer orders",
+  "label": {
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "password_confirm": "Confirm password"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "button": "Sign in",
+      "link": {
+        "text": "Registered already?",
+        "link": "Back to Sign in page"
+      }
+    },
+    "register": {
+      "title": "Register",
+      "button": "Sign up",
+      "message": "Your account has been successfully created",
+      "link": {
+        "text": "Not a member?",
+        "link": "Sign up now"
+      }
+    }
+  },
+  "error": {
+    "404": "The requested information was not found!",
+    "400": "Bad Request!",
+    "410": "You do not have permission for this request!",
+    "500": "Internal Server Error!",
+    "422": "Validation error!",
+    "logout": "You signed out!",
+    "form": {
+      "invalid": "There are some validation error, please check the form."
+    }
+  }
+}
