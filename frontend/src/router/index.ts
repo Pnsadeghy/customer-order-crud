@@ -1,4 +1,4 @@
-import {DASHBOARD_PAGE, LOGIN_PAGE, REGISTER_PAGE} from "@/router/names"
+import {DASHBOARD_PAGE, LOGIN_PAGE, ORDER_NEW_PAGE, ORDER_SHOW_PAGE, REGISTER_PAGE} from "@/router/names"
 import authMiddleware from "@/router/middlewares/auth.middleware"
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -30,6 +30,21 @@ const router = createRouter({
           path: '/',
           name: DASHBOARD_PAGE,
           component: () => import("../views/DashboardView.vue")
+        },
+        {
+          path: '/order',
+          children: [
+            {
+              path: 'new',
+              name: ORDER_NEW_PAGE,
+              component: () => import("../views/order/OrderNewView.vue")
+            },
+            {
+              path: ':id',
+              name: ORDER_SHOW_PAGE,
+              component: () => import("../views/order/OrderShowView.vue")
+            }
+          ]
         }
       ]
     }

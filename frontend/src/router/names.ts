@@ -2,3 +2,6 @@ export const DASHBOARD_PAGE = "DASHBOARD_PAGE"
 
 export const LOGIN_PAGE = "LOGIN_PAGE"
 export const REGISTER_PAGE = "REGISTER_PAGE"
+
+export const ORDER_NEW_PAGE = "ORDER_NEW_PAGE"
+export const ORDER_SHOW_PAGE = "ORDER_SHOW_PAGE"
