@@ -7,6 +7,7 @@ const router = createRouter({
   routes: [
     {
       path: '/auth',
+      component: () => import("@/app/layout/auth-layout/AuthLayout.vue"),
       children: [
         {
           path: "login",
@@ -23,7 +24,7 @@ const router = createRouter({
     {
       path: '/',
       beforeEnter: [authMiddleware],
-      component: () => import("../components/panel-layout/PanelLayout.vue"),
+      component: () => import("@/app/layout/panel-layout/PanelLayout.vue"),
       children: [
         {
           path: '/',
