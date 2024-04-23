@@ -21,8 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(validatorMiddleware)
 app.use(bodyParser.json())
 app.use(i18n.init)
-app.use(router)
 app.use(cors())
+app.use(router)
 
 app.listen(port, () => {
     console.log(`Server is Fire at http://localhost:${port}`)
