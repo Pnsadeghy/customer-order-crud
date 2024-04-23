@@ -35,6 +35,7 @@
 <script setup lang="ts">
 import type TablePaginationInterface from "./interfaces/table.pagination.interface"
 import type TableSchemaInterface from "./interfaces/table.schema.interface"
+import {openDeletePrompt} from "@/components/prompt/utils/prompt.utils"
 import AppTablePagination from "./AppTablePagination.vue"
 import AppCard from "@/components/card/AppCard.vue"
 import AppTableRow from "./AppTableRow.vue"
@@ -98,15 +99,22 @@ const onPageChanged = (page: number) => {
 }
 
 const onDelete = (item: object) => {
-    deletes.value.push(item["id"])
-    if (tableList.value.length === 0 && pagination.value.current_page > 1) {
-        pagination.value.current_page = 1
-        getData()
-    }
-    props.schema.deleteApi(item).then(() => {
-        list.value = list.value.filter((i: object) => i["id"] !== item["id"])
-    }).finally(() => {
-        deletes.value = deletes.value.filter((i: string) => i !== item["id"])
+    openDeletePrompt(() => {
+        deletes.value.push(item["id"])
+        const paginationValue = {...pagination.value}
+        paginationValue.total--
+        if (paginationValue.to > paginationValue.total)
+            paginationValue.to = paginationValue.total
+        if (tableList.value.length === 0 && pagination.value.current_page > 1) {
+            paginationValue.current_page = 1
+            getData()
+        }
+        pagination.value = paginationValue
+        props.schema.deleteApi(item).then(() => {
+            list.value = list.value.filter((i: object) => i["id"] !== item["id"])
+        }).finally(() => {
+            deletes.value = deletes.value.filter((i: string) => i !== item["id"])
+        })
     })
 }
 

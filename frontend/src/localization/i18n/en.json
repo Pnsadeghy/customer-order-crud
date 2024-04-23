@@ -10,7 +10,18 @@
     "next": "Next",
     "prev": "Previous",
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "message": {
+    "confirm": {
+      "message": "Are you sure to do this action?",
+      "delete": {
+        "title": "Delete",
+        "message": "Are you sure to delete this record?"
+      }
+    }
   },
   "auth": {
     "login": {

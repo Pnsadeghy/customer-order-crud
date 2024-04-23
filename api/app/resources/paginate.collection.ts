@@ -6,7 +6,7 @@ const paginateCollection = (data: object[], currentPage: number, limit: number, 
             current_page: currentPage,
             per_page: limit,
             from,
-            to: from + limit - 1,
+            to: Math.min(from + limit - 1, total),
             total
         }
     }
