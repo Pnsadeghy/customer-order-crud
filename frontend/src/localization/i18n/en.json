@@ -6,6 +6,12 @@
     "password": "Password",
     "password_confirm": "Confirm password"
   },
+  "button": {
+    "next": "Next",
+    "prev": "Previous",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
   "auth": {
     "login": {
       "title": "Login",
@@ -27,7 +33,11 @@
   },
   "order": {
     "list": {
-      "title": "Orders list"
+      "title": "Orders list",
+      "code": "Order code",
+      "customer": "Customer",
+      "totalPrice": "Price",
+      "date": "Order date"
     },
     "new": {
       "link": "New order"
