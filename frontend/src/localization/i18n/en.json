@@ -25,6 +25,14 @@
       }
     }
   },
+  "order": {
+    "list": {
+      "title": "Orders list"
+    },
+    "new": {
+      "link": "New order"
+    }
+  },
   "error": {
     "404": "The requested information was not found!",
     "400": "Bad Request!",
