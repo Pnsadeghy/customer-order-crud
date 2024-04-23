@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import i18n from "./localization"
 import router from "./routes"
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 dotenv.config()
 database()
@@ -19,8 +20,9 @@ app.get('/', async (req: Request, res: Response) => {
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(validatorMiddleware)
 app.use(bodyParser.json())
-app.use(router)
 app.use(i18n.init)
+app.use(router)
+app.use(cors())
 
 app.listen(port, () => {
     console.log(`Server is Fire at http://localhost:${port}`)
