@@ -9,7 +9,7 @@ import AppForm from "./AppForm.vue"
 import {defineModel, ref} from "vue";
 const props = defineProps<{
     id?: string
-    api: (data: object) => Promise<AxiosResponse<any>>
+    api: (data: object) => Promise<AxiosResponse<object|void>>
     submitChecker?: (data: object) => boolean
 }>()
 const emits = defineEmits<{
@@ -24,6 +24,7 @@ const onSubmit = async (data: object) => {
         const response = await props.api(data)
         emits("success", response["data"])
     } catch (e: object) {
+        console.log(e)
         emits("fail")
     }
     loading.value = false

@@ -36,7 +36,6 @@ apiInstance.interceptors.response.use(
         const status = +error.response?.status
         let message = ""
         if (status === 401) {
-            errorNotification("message.logout")
             appUtils.logout()
         } else
             message = error.response?.data?.message ||
