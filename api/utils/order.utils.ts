@@ -1,7 +1,7 @@
 import type OrderProductRequestInterface from "../app/requests/interfaces/order.product.request.interface"
 
 export const getOrderTotalPrice = (items: OrderProductRequestInterface[]) =>
-    items.reduce((sum: number, item: OrderProductRequestInterface) => sum + item.price, 0)
+    items.reduce((sum: number, item: OrderProductRequestInterface) => sum + (item.price * item.quantity), 0)
 
 export const getOrderItems = (items: OrderProductRequestInterface[]) =>
     items.map((i: OrderProductRequestInterface) => ({

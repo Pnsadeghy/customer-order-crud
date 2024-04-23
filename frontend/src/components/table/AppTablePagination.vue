@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-between border-t border-gray-200 bg-white lg:px-8 sm:px-6 px-4 py-2">
+    <div v-if="pagination.total > 0" class="flex items-center justify-between border-t border-gray-200 bg-white lg:px-8 sm:px-6 px-4 py-2">
         <div class="flex flex-1 justify-between sm:hidden">
             <button type="button"
                     :disabled="!previousEnabled"

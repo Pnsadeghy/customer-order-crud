@@ -11,6 +11,13 @@
             </app-table-row>
         </app-table-container>
 
+        <div v-if="isEmpty" class="py-8 flex justify-center">
+            <div class="text-center" >
+                <component :is="schema.empty.icon" class="h-10 block mx-auto mb-3 text-gray-400" />
+                <span>{{ $t(schema.empty.text) }}</span>
+            </div>
+        </div>
+
         <app-table-pagination v-if="schema.pagination"
                               :pagination="pagination"
                               @change="onPageChanged"/>
@@ -20,12 +27,12 @@
 <script setup lang="ts">
 import type TablePaginationInterface from "./interfaces/table.pagination.interface"
 import type TableSchemaInterface from "./interfaces/table.schema.interface"
+import AppTableContainer from "@/components/table/AppTableContainer.vue"
 import {openDeletePrompt} from "@/components/prompt/utils/prompt.utils"
 import AppTablePagination from "./AppTablePagination.vue"
 import AppCard from "@/components/card/AppCard.vue"
 import AppTableRow from "./AppTableRow.vue"
 import {ref, computed, onMounted} from "vue"
-import AppTableContainer from "@/components/table/AppTableContainer.vue";
 
 const props = defineProps<{
     schema: TableSchemaInterface
@@ -43,6 +50,7 @@ const orderType = ref<string>("")
 const search = ref<object>({})
 
 const tableList = computed(() => deletes.value.length === 0 ? list.value : list.value.filter((i: object) => !deletes.value.includes(i["id"])))
+const isEmpty = computed(() => tableList.value.length === 0)
 
 const getData = () => {
     const data: object = {...search.value}

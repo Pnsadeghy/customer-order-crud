@@ -10,6 +10,10 @@ export default interface TableSchemaInterface {
     hasActionColumn?: boolean,
     recordComponent: ComponentOptions
     searchComponent?: ComponentOptions
+    empty: {
+        icon: ComponentOptions
+        text: string
+    }
     order?: {
         key: string
         type?: TableOrderTypeEnum

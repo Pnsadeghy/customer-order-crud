@@ -46,6 +46,7 @@
     }
   },
   "order": {
+    "empty": "No orders found!",
     "list": {
       "title": "Orders list",
       "code": "Order code",
