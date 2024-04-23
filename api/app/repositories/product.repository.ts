@@ -1,4 +1,4 @@
-import ProductRepositoryInterface from "./interfaces/product.repository.interface";
+import type ProductRepositoryInterface from "./interfaces/product.repository.interface";
 import ProductModel from "../models/product.model";
 
 const productRepository: ProductRepositoryInterface = {

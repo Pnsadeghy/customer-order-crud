@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import {Model} from "mongoose"
 
 export const paginateList = async (
-    model: Model<any>,
+    queryBuilder: () => any,
     req: Request,
     res: Response,
     resource: (model: any) => object) => {
@@ -15,9 +15,9 @@ export const paginateList = async (
     const currentPage = page || 1
 
     return res.json(paginateCollection(
-        (await model.find().limit(limit).skip((currentPage - 1) * limit)).map(resource),
+        (await queryBuilder().limit(limit).skip((currentPage - 1) * limit)).map(resource),
         currentPage,
         limit,
-        await model.countDocuments()
+        await queryBuilder().countDocuments()
     ))
 }

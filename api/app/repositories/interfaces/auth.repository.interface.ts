@@ -1,5 +1,4 @@
-import UserModel, {UserDocument} from "../../models/user.model"
-import bcrypt from "bcrypt";
+import {type UserDocument} from "../../models/user.model"
 
 export default interface AuthRepositoryInterface {
     register: (username: string, email: string, password: string) => Promise<UserDocument>

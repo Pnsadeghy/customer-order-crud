@@ -1,4 +1,4 @@
-import {ProductDocument} from "../models/product.model"
+import {type ProductDocument} from "../models/product.model"
 
 const productResource = (model: ProductDocument) => ({
     id: model._id,

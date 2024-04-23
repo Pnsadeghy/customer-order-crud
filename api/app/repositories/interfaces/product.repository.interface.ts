@@ -1,4 +1,4 @@
-import {ProductDocument} from "../../models/product.model"
+import {type ProductDocument} from "../../models/product.model"
 
 export default interface ProductRepositoryInterface {
     all: () => Promise<ProductDocument[]>
