@@ -1,0 +1,57 @@
+.app-button{
+  @apply relative transition-all disabled:opacity-70;
+
+  .content svg{
+    @apply h-5;
+  }
+
+  &.primary{
+    @apply bg-indigo-600 text-white shadow-sm enabled:hover:bg-indigo-500 enabled:focus-visible:outline enabled:focus-visible:outline-2 enabled:focus-visible:outline-offset-2 enabled:focus-visible:outline-indigo-600;
+  }
+  &.danger{
+    @apply bg-red-600 text-white shadow-sm enabled:hover:bg-red-500 enabled:focus-visible:outline enabled:focus-visible:outline-2 enabled:focus-visible:outline-offset-2 enabled:focus-visible:outline-red-600;
+  }
+  &.outline-secondary{
+    @apply bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 enabled:hover:bg-gray-50;
+
+    &.menu{
+      @apply text-gray-600 hover:text-gray-900;
+    }
+  }
+
+  &.default{
+    @apply rounded-md text-sm font-semibold;
+  }
+  &.round{
+    @apply rounded-full text-sm font-semibold;
+  }
+  &.icon{
+    @apply aspect-square;
+  }
+
+  &.small{
+    @apply h-7;
+  }
+  &.normal{
+    @apply h-9;
+  }
+  &.large{
+    @apply h-10;
+  }
+
+  &:not(.icon){
+    &.small{
+      @apply px-2;
+    }
+    &.normal{
+      @apply px-3;
+    }
+    &.large{
+      @apply px-3.5;
+    }
+  }
+
+  &.loading .content{
+    @apply opacity-0;
+  }
+}
