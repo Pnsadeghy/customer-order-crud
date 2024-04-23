@@ -1,7 +1,6 @@
 <template>
     <app-loading-content :loading="loading">
         <form-kit :id="id" type="form"
-                  @submit-invalid="onError"
                   @submit="v => emits('submit', v)"
                   :actions="false">
             <slot />
@@ -10,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import {errorNotification} from "../notification/utils/notification.utils"
 import AppLoadingContent from "../loading-content/AppLoadingContent.vue"
 
 defineProps<{
@@ -20,7 +18,4 @@ defineProps<{
 const emits = defineEmits<{
     (e: "submit", value: object): void
 }>()
-const onError = () => {
-    errorNotification("error.form.invalid")
-}
 </script>

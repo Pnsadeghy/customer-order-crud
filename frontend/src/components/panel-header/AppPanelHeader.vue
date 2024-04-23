@@ -1,6 +1,6 @@
 <template>
   <header class="sticky top-0 relative z-10 bg-white w-full" >
-      <div class="container mx-auto px-4">
+      <div class="container">
           <div class="flex justify-between h-16 items-center" >
               <slot name="logo" />
               <button type="button"

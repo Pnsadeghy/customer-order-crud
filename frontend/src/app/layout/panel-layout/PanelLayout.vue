@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gray-200" >
       <panel-layout-header />
       <section>
-          <div class="container mx-auto py-8 px-4">
+          <div class="container py-8">
               <router-view />
           </div>
       </section>
