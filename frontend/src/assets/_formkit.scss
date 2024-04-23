@@ -1,5 +1,8 @@
 .formkit-outer{
   @apply mb-4;
+  &.hide-message .formkit-messages{
+    @apply hidden;
+  }
 }
 .formkit-label{
   @apply text-sm font-semibold mb-1;
@@ -18,7 +21,7 @@ textarea.formkit-input {
   @apply text-xs text-red-500 block;
 }
 
-[data-invalid="true"] {
+[data-invalid="true"], .input-container:has([data-invalid="true"]) {
   .formkit-label{
     @apply text-red-500;
   }

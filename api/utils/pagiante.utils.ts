@@ -6,7 +6,8 @@ export const paginateList = async (
     queryBuilder: () => any,
     req: Request,
     res: Response,
-    resource: (model: any) => object) => {
+    resource: (model: any) => object,
+    sort: object|null = null) => {
     const { page, limit }: {
         page: number
         limit: number

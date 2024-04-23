@@ -7,7 +7,7 @@ import {Request, Response} from "express"
 
 const orderController = {
     index: async (req: Request, res: Response) => {
-        return await paginateList(orderRepository.query, req, res, orderItemResource)
+        return await paginateList(orderRepository.query, req, res, orderItemResource, {"date": -1})
     },
     store: async (req: Request, res: Response) => {
         const { customer, address, date, items }: {

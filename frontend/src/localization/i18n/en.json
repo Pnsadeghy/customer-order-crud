@@ -62,6 +62,15 @@
       "customer": "Customer full name",
       "date": "Order date",
       "address": "Customer full address"
+    },
+    "product": {
+      "title": "Order products",
+      "choose": "Choose product",
+      "product": "Product",
+      "product_price": "Price",
+      "price": "Sell price",
+      "quantity": "Quantity",
+      "total": "Total price"
     }
   },
   "error": {

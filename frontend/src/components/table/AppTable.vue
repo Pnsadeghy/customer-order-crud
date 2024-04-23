@@ -4,27 +4,12 @@
                    @search="onSearch"
                    :is="schema.searchComponent" />
 
-        <div class="md:table min-w-full border-t border-gray-200">
-            <div class="md:table-header-group hidden">
-                <div class="md:table-row" >
-                    <div v-for="item in schema.columns"
-                         :key="item.name"
-                         class="table-cell border-b border-gray-200 bg-gray-100 px-3 py-3.5 first:lg:ps-8 first:md:ps-6 first:ps-0 text-left text-sm font-semibold text-gray-900">
-                        {{ item.name ? $t(item.name) : "" }}
-                    </div>
-                    <div class="table-cell border-b border-gray-200 bg-gray-100 relative py-3.5" v-if="schema.hasActionColumn">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="md:table-row-group">
-                <app-table-row v-for="item in tableList"
-                               :key="item.id">
-                    <component :is="schema.recordComponent" :item="item" @delete="onDelete(item)" />
-                </app-table-row>
-            </div>
-        </div>
+        <app-table-container :columns="schema.columns" :has-action-column="schema.hasActionColumn">
+            <app-table-row v-for="item in tableList"
+                           :key="item.id">
+                <component :is="schema.recordComponent" :item="item" @delete="onDelete(item)" />
+            </app-table-row>
+        </app-table-container>
 
         <app-table-pagination v-if="schema.pagination"
                               :pagination="pagination"
@@ -40,6 +25,7 @@ import AppTablePagination from "./AppTablePagination.vue"
 import AppCard from "@/components/card/AppCard.vue"
 import AppTableRow from "./AppTableRow.vue"
 import {ref, computed, onMounted} from "vue"
+import AppTableContainer from "@/components/table/AppTableContainer.vue";
 
 const props = defineProps<{
     schema: TableSchemaInterface

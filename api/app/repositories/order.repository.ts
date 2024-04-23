@@ -5,7 +5,7 @@ import OrderModel, {OrderDocument} from "../models/order.model"
 import shortid from "shortid"
 
 const orderRepository: OrderRepositoryInterface = {
-    query: (filters: object = {}) => OrderModel.find(filters),
+    query: (filters: object = {}) => OrderModel.find(filters).sort({orderDate: "desc"}),
     store: async (customer: string, address: string, date: Date, items: OrderProductRequestInterface[]) =>
         await OrderModel.create({
             code: shortid.generate(),
