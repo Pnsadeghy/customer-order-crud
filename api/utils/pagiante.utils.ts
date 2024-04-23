@@ -1,6 +1,6 @@
-import listCollection from "../app/resources/list.collection"
+import paginateCollection from "../app/resources/paginate.collection"
 import { Request, Response } from 'express'
-import {Model, Document} from "mongoose"
+import {Model} from "mongoose"
 
 export const paginateList = async (
     model: Model<any>,
@@ -14,7 +14,7 @@ export const paginateList = async (
 
     const currentPage = page || 1
 
-    return res.json(listCollection(
+    return res.json(paginateCollection(
         (await model.find().limit(limit).skip((currentPage - 1) * limit)).map(resource),
         currentPage,
         limit,
