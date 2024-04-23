@@ -16,7 +16,8 @@
     "back": "Back",
     "clear": "Clear",
     "update": "Save changes",
-    "try": "Click to try again"
+    "try": "Click to try again",
+    "print": "Print"
   },
   "message": {
     "update": "Changes saved successfully",
@@ -76,6 +77,16 @@
       "product": "Product",
       "product_price": "Price",
       "price": "Sell price",
+      "quantity": "Quantity",
+      "total": "Total price"
+    },
+    "print": {
+      "order": "Order",
+      "date": "Date",
+      "customer": "Customer",
+      "address": "Address",
+      "product": "Product",
+      "price": "Price",
       "quantity": "Quantity",
       "total": "Total price"
     }
