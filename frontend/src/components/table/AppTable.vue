@@ -1,0 +1,114 @@
+<template>
+    <app-card class="overflow-hidden" >
+        <component v-if="schema.searchComponent"
+                   @search="onSearch"
+                   :is="schema.searchComponent" />
+
+        <div class="md:table min-w-full border-t border-gray-200">
+            <div class="md:table-header-group hidden">
+                <div class="md:table-row" >
+                    <div v-for="item in schema.columns"
+                         :key="item.name"
+                         class="table-cell border-b border-gray-200 bg-gray-100 px-3 py-3.5 first:lg:ps-8 first:md:ps-6 first:ps-0 text-left text-sm font-semibold text-gray-900">
+                        {{ item.name ? $t(item.name) : "" }}
+                    </div>
+                    <div class="table-cell border-b border-gray-200 bg-gray-100 relative py-3.5" v-if="schema.hasActionColumn">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:table-row-group">
+                <app-table-row v-for="item in tableList"
+                               :key="item.id">
+                    <component :is="schema.recordComponent" :item="item" @delete="onDelete(item)" />
+                </app-table-row>
+            </div>
+        </div>
+
+        <app-table-pagination v-if="schema.pagination"
+                              :pagination="pagination"
+                              @change="onPageChanged"/>
+    </app-card>
+</template>
+
+<script setup lang="ts">
+import type TablePaginationInterface from "./interfaces/table.pagination.interface"
+import type TableSchemaInterface from "./interfaces/table.schema.interface"
+import AppTablePagination from "./AppTablePagination.vue"
+import AppCard from "@/components/card/AppCard.vue"
+import AppTableRow from "./AppTableRow.vue"
+import {ref, computed, onMounted} from "vue"
+
+const props = defineProps<{
+    schema: TableSchemaInterface
+}>()
+
+const list = ref<object[]>([])
+const deletes = ref<string[]>([])
+const pagination = ref<TablePaginationInterface>({
+    current_page: 1,
+    per_page: 10,
+    total: 0
+})
+const order = ref<string>("")
+const orderType = ref<string>("")
+const search = ref<object>({})
+
+const tableList = computed(() => deletes.value.length === 0 ? list.value : list.value.filter((i: object) => !deletes.value.includes(i["id"])))
+
+const getData = () => {
+    const data: object = {...search.value}
+    if (props.schema.pagination) {
+        data['page'] = pagination.value.current_page
+        data['per_page'] = pagination.value.per_page
+    }
+    if (order.value) {
+        data['order'] = order.value
+        if (orderType.value)
+            data['order_type'] = orderType.value
+    }
+
+    props.schema.api(data).then((res: any) => {
+        list.value = res.data.data
+
+        console.log(res.data)
+
+        if (props.schema.pagination) {
+            pagination.value = {
+                current_page: res.data.meta.current_page,
+                per_page: res.data.meta.per_page,
+                from: res.data.meta.from,
+                to: res.data.meta.to,
+                total: res.data.meta.total
+            }
+        }
+    })
+}
+
+const onSearch = (data: object) => {
+    search.value = data
+    pagination.value.current_page = 1
+    getData()
+}
+
+const onPageChanged = (page: number) => {
+    pagination.value.current_page = page
+    getData()
+}
+
+const onDelete = (item: object) => {
+    deletes.value.push(item["id"])
+    if (tableList.value.length === 0 && pagination.value.current_page > 1) {
+        pagination.value.current_page = 1
+        getData()
+    }
+    props.schema.deleteApi(item).then(() => {
+        list.value = list.value.filter((i: object) => i["id"] !== item["id"])
+    }).finally(() => {
+        deletes.value = deletes.value.filter((i: string) => i !== item["id"])
+    })
+}
+
+onMounted(getData)
+</script>

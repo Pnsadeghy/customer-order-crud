@@ -13,11 +13,12 @@ export const paginateList = async (
     } = req.body
 
     const currentPage = page || 1
+    const perPage = limit || 10
 
     return res.json(paginateCollection(
-        (await queryBuilder().limit(limit).skip((currentPage - 1) * limit)).map(resource),
+        (await queryBuilder().limit(perPage).skip((currentPage - 1) * perPage)).map(resource),
         currentPage,
-        limit,
+        perPage,
         await queryBuilder().countDocuments()
     ))
 }
