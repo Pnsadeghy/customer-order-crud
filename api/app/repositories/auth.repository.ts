@@ -1,5 +1,5 @@
-import AuthRepositoryInterface from "./interfaces/auth.repository.interface"
-import UserModel, {UserDocument} from "../models/user.model"
+import type AuthRepositoryInterface from "./interfaces/auth.repository.interface"
+import UserModel, {type UserDocument} from "../models/user.model"
 import bcrypt from "bcrypt"
 
 const authRepository: AuthRepositoryInterface = {
