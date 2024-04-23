@@ -1,15 +1,16 @@
 <template>
   <app-form-api :api="login" @success="emits('success')" v-slot="{loading}">
       <form-kit name="username"
-                label="username"
+                :label="$t('label.username')"
                 validation="required"
       />
       <form-kit name="password"
-                label="password"
+                :label="$t('label.password')"
+                type="password"
                 validation="required"
       />
-      <app-button submit :loading="loading">
-          Login
+      <app-button submit :loading="loading" class="w-full">
+          {{ $t('auth.login.button') }}
       </app-button>
   </app-form-api>
 </template>
