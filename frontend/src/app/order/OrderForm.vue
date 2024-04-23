@@ -32,7 +32,7 @@ import type OrderInterface from "./interfaces/order.interface"
 import AppButton from "@/components/button/AppButton.vue"
 import AppForm from "@/components/form/AppForm.vue"
 import {dateFormat} from "@/utils/date.utils"
-import {computed, ref} from "vue"
+import {computed, ref, onMounted} from "vue"
 
 const props = defineProps<{
     item?: OrderInterface
@@ -64,4 +64,13 @@ const onSubmit = () => {
         loading.value = false
     })
 }
+
+onMounted(() => {
+    if (props.item) {
+        customer.value = props.item.customer
+        address.value = props.item.address
+        date.value = props.item.date
+        products.value = props.item.items
+    }
+})
 </script>
