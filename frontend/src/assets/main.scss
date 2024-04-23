@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../components/button/assets/button";
 @import "formkit";
+
+.container{
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+}

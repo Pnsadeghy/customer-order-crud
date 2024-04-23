@@ -6,6 +6,28 @@
     "password": "Password",
     "password_confirm": "Confirm password"
   },
+  "button": {
+    "next": "Next",
+    "prev": "Previous",
+    "edit": "Edit",
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+    "clear": "Clear",
+    "update": "Save changes",
+    "try": "Click to try again"
+  },
+  "message": {
+    "update": "Changes saved successfully",
+    "confirm": {
+      "message": "Are you sure to do this action?",
+      "delete": {
+        "title": "Delete",
+        "message": "Are you sure to delete this record?"
+      }
+    }
+  },
   "auth": {
     "login": {
       "title": "Login",
@@ -26,11 +48,36 @@
     }
   },
   "order": {
+    "empty": "No orders found!",
     "list": {
-      "title": "Orders list"
+      "title": "Orders list",
+      "code": "Order code",
+      "customer": "Customer",
+      "totalPrice": "Price",
+      "date": "Order date"
     },
     "new": {
-      "link": "New order"
+      "link": "New order",
+      "title": "Add new order",
+      "button": "Store order"
+    },
+    "show": {
+      "title": "Show order"
+    },
+    "form": {
+      "customer": "Customer full name",
+      "date": "Order date",
+      "address": "Customer full address",
+      "totalPrice": "Total price"
+    },
+    "product": {
+      "title": "Order products",
+      "choose": "Choose product",
+      "product": "Product",
+      "product_price": "Price",
+      "price": "Sell price",
+      "quantity": "Quantity",
+      "total": "Total price"
     }
   },
   "error": {

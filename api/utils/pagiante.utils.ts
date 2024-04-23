@@ -6,18 +6,20 @@ export const paginateList = async (
     queryBuilder: () => any,
     req: Request,
     res: Response,
-    resource: (model: any) => object) => {
+    resource: (model: any) => object,
+    sort: object|null = null) => {
     const { page, limit }: {
         page: number
         limit: number
     } = req.body
 
     const currentPage = page || 1
+    const perPage = limit || 10
 
     return res.json(paginateCollection(
-        (await queryBuilder().limit(limit).skip((currentPage - 1) * limit)).map(resource),
+        (await queryBuilder().limit(perPage).skip((currentPage - 1) * perPage)).map(resource),
         currentPage,
-        limit,
+        perPage,
         await queryBuilder().countDocuments()
     ))
 }

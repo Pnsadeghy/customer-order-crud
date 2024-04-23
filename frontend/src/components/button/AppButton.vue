@@ -14,7 +14,6 @@
 <script setup lang="ts">
 import type ButtonPropInterface from "./interfaces/button.prop.interface"
 import IconSpinner from "../icons/IconSpinner.vue"
-import "./assets/_button.scss"
 
 withDefaults(defineProps<ButtonPropInterface>(), {
     theme: 'primary',

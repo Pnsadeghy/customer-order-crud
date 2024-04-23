@@ -4,7 +4,6 @@ const orderResource = (model: OrderDocument) => ({
     id: model._id,
     code: model.code,
     customer: model.customerName,
-    address: model.address,
     totalPrice: model.totalPrice,
     date: model.orderDate
 })

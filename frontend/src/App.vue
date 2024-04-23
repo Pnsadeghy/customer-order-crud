@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppNotificationManager from "@/components/notification/AppNotificationManager.vue"
+import AppPrompt from "@/components/prompt/AppPrompt.vue"
 import useAuthStore from "@/stores/auth.store"
 import {useRoute, useRouter} from "vue-router"
 import {LOGIN_PAGE} from "@/router/names"
@@ -25,5 +26,6 @@ appUtils.logout = () => {
 <template>
   <router-view />
   <app-notification-manager />
+  <app-prompt />
 </template>
 
