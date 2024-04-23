@@ -5,6 +5,7 @@ import appUtils from "@/utils/app.utils"
 const authStore = useAuthStore()
 authStore.checkAuth()
 appUtils.isLoggedIn = () => authStore.isLoggedIn()
+appUtils.authToken = () => authStore.authToken
 </script>
 
 <template>

@@ -7,6 +7,8 @@ const useAuthStore = defineStore("auth", () => {
     const checkAuth = () => {}
 
     return {
+        authToken,
+
         isLoggedIn: () => authToken.value !== null,
         checkAuth
     }
