@@ -1,8 +1,12 @@
 <template>
   <app-table-column :label="$t('order.list.code')" class="md:w-32" >{{ item.code }}</app-table-column>
   <app-table-column :label="$t('order.list.customer')">{{ item.customer }}</app-table-column>
-  <app-table-column :label="$t('order.list.totalPrice')" class="md:w-32" >{{ item.totalPrice }}</app-table-column>
-  <app-table-column :label="$t('order.list.date')" class="md:w-32" >{{ item.date }}</app-table-column>
+  <app-table-column :label="$t('order.list.totalPrice')" class="md:w-32" >
+      {{ $filters.currency(item.totalPrice) }}
+  </app-table-column>
+  <app-table-column :label="$t('order.list.date')" class="md:w-32" >
+      {{ $filters.date(item.date) }}
+  </app-table-column>
   <app-table-column class="md:w-32" >
       <app-table-action-column @delete="emits('delete')"
                                :edit-route="{name: ORDER_SHOW_PAGE, params: {id: item.id}}" />
