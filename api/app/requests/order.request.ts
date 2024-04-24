@@ -14,7 +14,7 @@ const orderRequest = [
         if (ids.length !== new Set(ids).size)
             throw new Error("Items have repeated items")
         const products = await ProductModel.find({ _id: ids })
-        if (ids.length !== products.size())
+        if (ids.length !== products.length)
             throw new Error("Unregistered products found")
     })
 ]
