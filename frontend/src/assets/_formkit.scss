@@ -1,0 +1,31 @@
+.formkit-outer{
+  @apply mb-4;
+  &.hide-message .formkit-messages{
+    @apply hidden;
+  }
+}
+.formkit-label{
+  @apply text-sm font-semibold mb-1;
+}
+.formkit-input{
+  @apply rounded-md ring-1 ring-gray-300 h-8 px-3 w-full bg-white/50 focus:ring focus:ring-indigo-600 outline-none py-0 focus:bg-white;
+}
+textarea.formkit-input {
+  @apply h-auto py-2;
+}
+
+.formkit-messages{
+  @apply mt-1;
+}
+.formkit-message{
+  @apply text-xs text-red-500 block;
+}
+
+[data-invalid="true"], .input-container:has([data-invalid="true"]) {
+  .formkit-label{
+    @apply text-red-500;
+  }
+  .formkit-input{
+    @apply ring-red-500;
+  }
+}

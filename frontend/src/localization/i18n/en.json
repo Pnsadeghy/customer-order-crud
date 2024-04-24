@@ -1,0 +1,105 @@
+{
+  "title": "VCO Panel",
+  "label": {
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "password_confirm": "Confirm password"
+  },
+  "button": {
+    "next": "Next",
+    "prev": "Previous",
+    "edit": "Edit",
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+    "clear": "Clear",
+    "update": "Save changes",
+    "try": "Click to try again",
+    "print": "Print"
+  },
+  "message": {
+    "update": "Changes saved successfully",
+    "confirm": {
+      "message": "Are you sure to do this action?",
+      "delete": {
+        "title": "Delete",
+        "message": "Are you sure to delete this record?"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "button": "Sign in",
+      "link": {
+        "text": "Registered already?",
+        "link": "Back to Sign in page"
+      }
+    },
+    "register": {
+      "title": "Register",
+      "button": "Sign up",
+      "message": "Your account has been successfully created",
+      "link": {
+        "text": "Not a member?",
+        "link": "Sign up now"
+      }
+    }
+  },
+  "order": {
+    "empty": "No orders found!",
+    "list": {
+      "title": "Orders list",
+      "code": "Order code",
+      "customer": "Customer",
+      "totalPrice": "Price",
+      "date": "Order date"
+    },
+    "new": {
+      "link": "New order",
+      "title": "Add new order",
+      "button": "Store order"
+    },
+    "show": {
+      "title": "Show order"
+    },
+    "form": {
+      "customer": "Customer full name",
+      "date": "Order date",
+      "address": "Customer full address",
+      "totalPrice": "Total price"
+    },
+    "product": {
+      "title": "Order products",
+      "choose": "Choose product",
+      "product": "Product",
+      "product_price": "Price",
+      "price": "Sell price",
+      "quantity": "Quantity",
+      "total": "Total price"
+    },
+    "print": {
+      "order": "Order",
+      "date": "Date",
+      "customer": "Customer",
+      "address": "Address",
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total price"
+    }
+  },
+  "error": {
+    "404": "The requested information was not found!",
+    "400": "Bad Request!",
+    "410": "You do not have permission for this request!",
+    "500": "Internal Server Error!",
+    "422": "Validation error!",
+    "logout": "You signed out!",
+    "form": {
+      "invalid": "There are some validation error, please check the form."
+    }
+  }
+}

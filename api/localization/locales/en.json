@@ -1,0 +1,10 @@
+{
+  "validation.invalid": "{{field}} is invalid",
+  "validation.auth.exists": "User already exists",
+  "validation.auth.failed": "Username or password is wrong",
+  "validation.auth.current": "Current password is wrong",
+  "validation.auth.username": "Username is required",
+  "validation.auth.email": "Email address is invalid",
+  "validation.auth.password": "Password must be at least 6 characters long",
+  "validation.auth.current_password": "Current password must be at least 6 characters long"
+}
