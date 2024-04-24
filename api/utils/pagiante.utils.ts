@@ -9,9 +9,9 @@ export const paginateList = async (
     resource: (model: any) => object,
     sort: object|null = null) => {
     const { page, limit }: {
-        page: number
-        limit: number
-    } = req.body
+        page?: number
+        limit?: number
+    } = req.query
 
     const currentPage = page || 1
     const perPage = limit || 10
