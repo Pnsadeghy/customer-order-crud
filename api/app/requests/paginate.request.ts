@@ -1,8 +1,8 @@
 import { body } from 'express-validator'
 
-const orderRequest = [
-    body('page').isNumeric(),
-    body('limit').isNumeric(),
+const paginateRequest = [
+    body('page').optional().isNumeric(),
+    body('limit').optional().isNumeric()
 ]
 
-export default orderRequest
+export default paginateRequest
